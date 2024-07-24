@@ -17,10 +17,13 @@ html{
     overflow: hidden;
 }
 .game{
-    position: absolute;
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+    /* position: absolute;
     top:50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
 }
 .controls{
     display: flex;
@@ -48,7 +51,7 @@ button{
     font-weight: bold;
 }
 .board-container{
-    position: relative;
+    position: absolute;
 }
 .board, .win{
     background: linear-gradient(135deg,#89d2ff 0%,#5cbdf9 30%,#0086da 70%, #002c47 100%);
