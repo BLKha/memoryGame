@@ -15,6 +15,7 @@ html{
     background: #000;
     color: #fff;
     overflow: hidden;
+    box-sizing: border-box;
 }
 .game{
     position: relative;
@@ -51,7 +52,7 @@ button{
     font-weight: bold;
 }
 .board-container{
-    position: absolute;
+    position: relative;
 }
 .board, .win{
     background: linear-gradient(135deg,#89d2ff 0%,#5cbdf9 30%,#0086da 70%, #002c47 100%);
@@ -61,6 +62,7 @@ button{
     backface-visibility: hidden;
 } 
 .board{
+    position: absolute;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4,auto);
@@ -114,9 +116,8 @@ button{
     transform: rotateY(180deg) rotateZ(50deg);
 }
 .win-text{
+    margin-top: 40%;
     position: absolute;
-    top: 50%;
-    left: 50%;
     padding: 15px;
     transform: translate(-50%,-50%);
     background-color: transparent;
