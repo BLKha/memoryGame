@@ -1,3 +1,4 @@
+const $ = document.querySelector.bind(document);
 const selectors={
     boardContainer : document.querySelector('.board-container'),
     start: document.querySelector('button'),
@@ -5,6 +6,8 @@ const selectors={
     timer: document.querySelector('.timer'),
     board: document.querySelector('.board'),
     win: document.querySelector('.win'),
+    audio:document.querySelector('#audio'),
+    music: document.querySelector('.btnMusic')
 }
 
 const state={
@@ -12,7 +15,8 @@ const state={
     flippeddCards:0,
     totalFlips:0,
     totalTime:0,
-    loop:null
+    loop:null,
+    isPlaying:false
 }
     //xáo trộn các phần tử trong mảng 
  const shuffle= array =>{
@@ -148,15 +152,33 @@ const state={
     document.addEventListener('click', event =>{
         const eventTarget= event.target;
         const eventParent = eventTarget.parentElement;
-
+        
         if(eventTarget.className.includes('card') && !eventParent.className.includes('flipped')){
             flipCard(eventParent);
         }else if(eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')){
             startGame();
         }
+        
+
     })
  }
+  const musicEvent=()=>{
+    selectors.music.onclick = function(){
+        if(state.isPlaying){
+        selectors.audio.pause()
+        }else{
+        selectors.audio.play()
+        }
+    }
+    audio.onplay = function(){
+        state.isPlaying =true
+        selectors.music.classList.add('playing') 
+    }
+        audio.onpause= function(){
+        state.isPlaying =false
+        selectors.music.classList.remove('playing')
+        }
+  }
  generateGame();
-
-
+ musicEvent();
 attachEventListeners();
